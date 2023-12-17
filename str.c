@@ -2,10 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned int fgetline(char* line_, FILE* f_)
-{
-   
-   return 0;
+unsigned int my_fgetline(FILE* file) {
+   int count = 0;
+   int ch;
+
+   while ((ch = fgetc(file)) != EOF) {
+      count++;
+   }
+
+   return count;
 }
 
 unsigned int my_strlen(const char* str_)
@@ -34,7 +39,7 @@ char* my_strcat(char* dest, const char* src)
    {
       dest[n + i] = src[n];
    }
-   dest[i+n] = '\0';
+   dest[i + n] = '\0';
 
    return dest;
 }
@@ -60,7 +65,7 @@ int my_strcmp(const char* str1, const char* str2)
 
 char* my_strstr(const char* haystack, const char* needle)
 {
-   char haystack_copy[100] = {0};
+   char haystack_copy[100] = { 0 };
    unsigned int count = 0;
    short int flag = 1;
    for (int i = 0; i < my_strlen(haystack); i++)
@@ -84,4 +89,3 @@ char* my_strstr(const char* haystack, const char* needle)
    }
    return "NULL";
 }
-
